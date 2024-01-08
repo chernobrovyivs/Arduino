@@ -3,6 +3,14 @@ void setup() {
   pinMode(A4, INPUT); // Определяем ПИН А4 как ВХОД
   pinMode(A1, INPUT); // Определяем ПИН А1 как ВХОД
 
+  /* 
+  pinMode(A1, INPUT_PULLUP);
+  pinMode(A4, INPUT_PULLUP);
+  
+  Подключение с подтягивающим резистором со стороны Arduino!
+
+  */
+
   Serial.begin(9600); // Определяем COM порт и его скорость для вывода информации в терминал
 }
 
