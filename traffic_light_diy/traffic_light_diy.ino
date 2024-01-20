@@ -1,6 +1,7 @@
 /*
   Traffic light sketch for Arduino UNO R3
   version: 0.1
+  date: 20.01.2023
   Developer: Valeriy Chernobrovyi (chernobrovyivs)
 */
 byte LEDcounter = 0;
