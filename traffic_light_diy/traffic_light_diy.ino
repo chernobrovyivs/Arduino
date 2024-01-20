@@ -1,6 +1,6 @@
 /*
   Traffic light sketch for Arduino UNO R3
-  version: 0.1
+  version: 0.2
   date: 20.01.2023
   Developer: Valeriy Chernobrovyi (chernobrovyivs)
 */
@@ -15,6 +15,8 @@ void setup() {
   digitalWrite(1, 0);
   digitalWrite(2, 0);
   digitalWrite(3, 0);
+
+  Serial.begin(9600);
 }
 
 void loop() {
@@ -30,16 +32,22 @@ void loop() {
         digitalWrite(1, 1);
         digitalWrite(2, 0);
         digitalWrite(3, 0);
+
+        Serial.println("Red light.");
         break;
       case 2:
         digitalWrite(1, 0);
         digitalWrite(2, 1);
         digitalWrite(3, 0);
+
+        Serial.println("Yellow light.");
         break;
       case 3:
         digitalWrite(1, 0);
         digitalWrite(2, 0);
         digitalWrite(3, 1);
+
+        Serial.println("Green light.");
         break;
       default:
         digitalWrite(1, 0);
@@ -54,5 +62,7 @@ void loop() {
 
   if(LEDcounter > 3){
     LEDcounter = 0;
+    Serial.println("Переменная LEDcounter == 0!");
+    delay(2000);
   }
 }
