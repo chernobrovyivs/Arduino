@@ -1,8 +1,8 @@
 /*
   Traffic light sketch for Arduino UNO R3
-  version: 0.5
+  version: 0.5.1
   date: 20.01.2023
-  modified 16.04.2023
+  modified 20.04.2023
   Developer: Valeriy Chernobrovyi (chernobrovyivs)
 */
 byte LEDcounter = 0;
@@ -29,7 +29,7 @@ void loop() {
   Serial.println("Выберите режим работы!");
   delay(2000);
   btn_status = !digitalRead(8); // Read btn status!
-  btn_status_work_const = 0;
+  //btn_status_work_const = 0;
   Serial.println(btn_status);
 
   if(btn_status == 1 && btn_flag == 0){
@@ -43,7 +43,21 @@ void loop() {
   }
 
     if((btn_status_work_const == 1) && (btn_flag == 1)){
-      Serial.println("Включен автоматический режим!\n");
+      automode();
+      }
+
+      if(LEDcounter > 4){
+        LEDcounter = 0;
+        Serial.println("Переменная LEDcounter == 0!\n");
+        delay(2000);
+      }
+    } else{
+      manualmode();
+    }
+}
+
+void automode(){
+  Serial.println("Включен автоматический режим!\n");
       LEDcounter = 2;
       while(LEDcounter <= 4){
         switch(LEDcounter){
@@ -80,15 +94,9 @@ void loop() {
         digitalWrite(2, 0);
         digitalWrite(3, 0);
         digitalWrite(4, 0);
-      }
+}
 
-      if(LEDcounter > 4){
-        LEDcounter = 0;
-        Serial.println("Переменная LEDcounter == 0!\n");
-        delay(2000);
-      }
-    } else{
-      Serial.println("Выключен автоматический режим!\n");
-      delay(2000);
-    }
+void manualmode(){
+  Serial.println("Включён ручной режим!\n");
+  delay(2000);
 }
