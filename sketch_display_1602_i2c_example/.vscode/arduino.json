@@ -1,0 +1,6 @@
+{
+    "board": "arduino:avr:uno",
+    "port": "COM3",
+    "programmer": "avrisp",
+    "sketch": "sketch_display_1602_i2c_example.ino"
+}
