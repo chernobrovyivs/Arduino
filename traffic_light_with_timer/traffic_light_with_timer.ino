@@ -174,7 +174,7 @@ void led_functions(int led_num)
     }
 
     y++;
-    if(y > 3)
+    if(y >= 3)
     {
       y = 0;
     }
