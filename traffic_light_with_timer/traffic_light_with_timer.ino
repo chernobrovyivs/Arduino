@@ -206,7 +206,7 @@ void loop() {
 
   led_functions(zero_otschota);
 
-  for(i = 9; i >= 0; i--)
+  for(i = 5; i >= 0; i--)
   {
     display_number(i);
     delay(1000);
